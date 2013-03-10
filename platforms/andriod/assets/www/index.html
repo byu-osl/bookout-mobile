@@ -13,49 +13,66 @@
   <body>
 
 	
-    <div class="navbar navbar">
-    <div class="navbar-inner">
-    <div class="container">
-  
-    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    </a>
-						      
-    <!-- Be sure to leave the brand out there if you want it shown -->
-    <a class="brand" href="#">Book Out</a>
-						   
-    <!-- Everything you want hidden at 940px or less, place within here -->
-    <div class="nav-collapse collapse">
+    <div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+		<div class="container">
+	  
+		<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</a>
+								  
+		<!-- Be sure to leave the brand out there if you want it shown -->
+		<a class="brand" href="#">Book Out</a>
+							   
+		<!-- Everything you want hidden at 940px or less, place within here -->
+		<div class="nav-collapse collapse">
 
-	<ul class='nav'>
-		<li><a>Lend</a></li>
-		<li><a>Borrow</a></li>
-		<li><a>My Library</a></li>
-		<li><a>Not My Stuff</a></li>
-	</ul>
+		<ul class='nav'>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Sign Up</a></li>
+		</ul>
 
-    <!-- .nav, .navbar-search, .navbar-form, etc -->
-    </div>
-  
-    </div>
-    </div>
+		<!-- .nav, .navbar-search, .navbar-form, etc -->
+		</div>
+	  
+		</div>
+		</div>
     </div>
 
     <div id='content_container' class='well'>
-	<form id='isbn_form' class='form-inline' action='#add_book' >
-		<div id='isbn'class='input-prepend input-append'>
-		  <span class='add-on'>ISBN:</span>
-		  <input type='text' placeholder='000000000-0' class='input-small'>
-		  <button id='isbn_btn'type='button' data-loading-text='...' 
-		          class='btn btn-primary' type='button'>Add</button>
-		</div>
-		<span id='isbn_text' class='help-inline'></span>
 
-	</form>
+	<h3>BookOut: The Place to Share Books</h3>
+
+	<p>BookOut is a personal library network, built to help users share physical books between friends. 
+	With BookOut you can create an index, or library, of all your personal books, browse your friends' 
+	libraries, and request to loan books from your friends. BookOut tracks the books you are loaning 
+	and borrowing, and notifies you when items are due. <a href="#join">Join today!</a></p>
+
+	<h3>Discover books already on BookOut</h3>
+	
+	<div id="searchBar" class ='input-append'>
+		<input type="text" class="span10 search-query" placeholder="Enter ISBN, Title, or Author..." style='width:150%;'/>
+		<button type='submit' class="btn">Search</button>
+	</div>
+
     </div>
+	
+	
+	<footer id="footer">
+		<div class="links">
+			<ul>
+				<li><a href="#">Donate</a>
+				<li><a href="#">Terms of Use</a>
+				<li><a href="#">About</a>
+				<li><a href="#">Contact Us</a>
+			</ul>
+		</div>
+	</footer>
+
 
 
      <!--Scripts-->

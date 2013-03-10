@@ -1,5 +1,25 @@
-#content_container{
-	/*border:2px dotted black;*/
-	height:300px;
+
+/*****CSS for the Main Template*****/
+
+body {
+	overflow:hidden;
+	padding: 0 1em;
+}
+    
+#footer	{
+	float: left;
+	line-height: 80px;
+	border-top: 1px solid #f5f5f5;
 }
 
+#footer ul {
+	margin: 0;
+	padding: 0;
+}
+
+#footer li {
+	display: inline-block;
+	float: left;
+	list-style: none;
+	margin-left:10px;
+}
