@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+
+  <link rel="stylesheet" href="../css/bootstrap.css"/>
+  <link rel="stylesheet" href="../css/maintemplate.css"/>	
+  <link rel="stylesheet" href="../css/bootstrap-responsive.css" />
+  <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../css/maintemplate.css"/>
+  <link rel="stylesheet" href="../css/bootswatch.css"/>
+  <link rel="stylesheet" href="../css/datepicker.css"/>
+ </head>
+<body>
+console.log contains the templates... Maybe not the best system, but who are
+you to look down on me?
+<br>
+Rendered Templates:
+<br>
+
+<div id='rendered_templates'></div>
+
+
+
+<script src="dust.min.js"></script>
+<script src="make_template_base.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
+<script src="../js/datepicker.js"></script>
+<script src="../js/methods.js"></script>
+<script type="text/javascript">
+
+
+	var hello_world = dust.compile(
+		"Hello {name}!", "hello_world");	
+	dust.loadSource(hello_world);
+	
+	dust.render(
+		"hello_world", 
+		{name: "Fred"},
+		function(err, out){
+			$('#rendered_templates')
+			  .append($('<br/>'))
+			  .append($('<div/>').html("hello_world"))
+			  .append($('<div/>').html(out));
+		}
+	);
+	
+	var title_content = dust.compile(
+	    '<title>{title} | BookOut</title>\
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+		, "title_content");	
+	dust.loadSource(title_content);
+
+	dust.render(
+		"title_content", 
+		{title:'Temp Gen'},
+		function(err, out){
+			$('#rendered_templates')
+			  .append($('<br/>'))
+			  .append($('<div/>').html("title_content"))
+			  .append($('<div/>').html(out));
+		}
+	);
+	
+	var unauth_nav = dust.compile(
+		'<div id="wrap">\
+			<div class="navbar navbar-inverse navbar-fixed-top main_nav">\
+				<div class="navbar-inner">\
+					<div class="container">\
+						<a class="brand pull-left" href="{path_to_root}{index_url}">BookOut</a>\
+					</div>\
+				</div>\
+			</div>\
+		</div>','unauth_nav');
+	dust.loadSource(unauth_nav);
+	
+	dust.render(
+		"unauth_nav", 
+		base,
+		function(err, out){
+			$('#rendered_templates')
+			  .append($('<br/>'))
+			  .append($('<div/>').html("unauth_nav"))
+			  .append($('<div/>').html(out));
+		}
+	);
+	
+	var auth_nav = dust.compile(
+		'<div id="wrap">\
+			<div class="navbar navbar-inverse navbar-fixed-top main_nav">\
+				<div class="navbar-inner">\
+					<div class="container">\
+						<a class="brand pull-left" href="{path_to_root}{index_url}">BookOut</a>\
+						<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" style="float:left;">\
+							<span class="icon-bar"></span>\
+							<span class="icon-bar"></span>\
+							<span class="icon-bar"></span>\
+						</button>\
+						<ul class="nav pull-right" id="settings_dropdown">\
+				                <li class="dropdown">\
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">\
+								<i class="icon-cog"></i>\
+								<span class="caret" style="margin-left:-3px"></span>\
+								</a>\
+								<ul class="dropdown-menu">\
+									<li><a href="/user/{user_id}}">{user_email}</a></li>\
+									<li class="divider"></li>\
+									<li><a href="{path_to_root}{settings_url}">Settings</a></li>\
+									<li><a href="#" onclick="sign_out();">Sign Out</a></li>\
+								</ul>\
+							</li>\
+				        </ul>\
+						<div class="nav-collapse collapse">\
+							<ul class="nav">\
+								<li><a href="{path_to_root}{library_url}">Library</a></li>\
+								<li><a href="{path_to_root}{network_url}">Network</a></li>\
+							</ul>\
+						</div>\
+					</div>\
+				</div>\
+			</div>\
+		</div>','auth_nav');
+	dust.loadSource(auth_nav);
+	
+	dust.render(
+		"auth_nav", 
+		base.push({user_id:0,user_email:"example@domain.com"}),
+		function(err, out){
+			$('#rendered_templates')
+			  .append($('<br/>'))
+			  .append($('<br/>'))
+			  .append($('<br/>'))
+			  .append($('<div/>').html("auth_nav"))
+			  .append($('<div/>').html(out));
+		}
+	);
+	
+	
+	var footer_html_string = '<div id="footer">\
+		<div class="container">\
+			<div class="links">\
+				<ul>\
+					<li><a href="#" onclick="visit_github();">GitHub</a></li>\
+					<li><a href="#" onclick="visit_github();">Donate</a></li>\
+					<li><a href="#" onclick="visit_github();">About</a></li>\
+				</ul>\
+			</div>\
+		</div>\
+	</div>';
+	
+	var footer = dust.compile(footer_html_string, 'footer');
+	dust.loadSource(footer);
+	
+	dust.render('footer',base,function(err,out){
+		$('#rendered_templates')
+			  .append($('<br/>'))
+			  .append($('<br/>'))
+			  .append($('<br/>'))
+			  .append($('<div/>').html("auth_nav"))
+			  .append($('<div/>').html(out))});
+	
+	console.log(hello_world
+		+title_content
+		+unauth_nav
+		+auth_nav
+		+footer);
+	</script>
+
+
+</body>
+</html>

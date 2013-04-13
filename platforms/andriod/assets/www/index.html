@@ -1,83 +1,63 @@
-<!DOCTYPE html>
-<html lang='en'>
+<!DOCTYPE HTML>
+<html>
+
   <head>
-      	<title>Bootout Mobile Mockup</title>
-  	<!-- Bootstrap -->
-	 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	 <link href="css/style.css" rel="stylesheet" media="screen">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="css/bootstrap-responsive.css" rel="stylesheet">
-
-
+	  <link rel="stylesheet" href="./css/bootstrap.css"/>
+	  <link rel="stylesheet" href="./css/maintemplate.css"/>	
+	  <link rel="stylesheet" href="./css/bootstrap-responsive.css" />
+	  <link rel="stylesheet" href="./css/maintemplate.css"/>
+	  <link rel="stylesheet" href="./css/bootswatch.css"/>
+	  <!--<link rel="stylesheet" href="./css/datepicker.css"/>-->
   </head>
+  
   <body>
-
 	
-    <div class="navbar navbar-inverse">
-		<div class="navbar-inner">
-		<div class="container">
-	  
-		<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		</a>
-								  
-		<!-- Be sure to leave the brand out there if you want it shown -->
-		<a class="brand" href="#">Book Out</a>
-							   
-		<!-- Everything you want hidden at 940px or less, place within here -->
-		<div class="nav-collapse collapse">
-
-		<ul class='nav'>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Login</a></li>
-			<li><a href="#">Sign Up</a></li>
-		</ul>
-
-		<!-- .nav, .navbar-search, .navbar-form, etc -->
-		</div>
-	  
-		</div>
-		</div>
-    </div>
-
-    <div id='content_container' class='well'>
-
-	<h3>BookOut: The Place to Share Books</h3>
-
-	<p>BookOut is a personal library network, built to help users share physical books between friends. 
-	With BookOut you can create an index, or library, of all your personal books, browse your friends' 
-	libraries, and request to loan books from your friends. BookOut tracks the books you are loaning 
-	and borrowing, and notifies you when items are due. <a href="#join">Join today!</a></p>
-
-	<h3>Discover books already on BookOut</h3>
-	
-	<div id="searchBar" class ='input-append'>
-		<input type="text" class="span10 search-query" placeholder="Enter ISBN, Title, or Author..." style='width:150%;'/>
-		<button type='submit' class="btn">Search</button>
+	<span id='nav'></span>
+	<div id='content'>	
+		<button onclick='log_in();'>login</button>
+		<button onclick='log_out();'>log out</button>
 	</div>
-
-    </div>
+	<div id='foot'></div>
 	
 	
-	<footer id="footer">
-		<div class="links">
-			<ul>
-				<li><a href="#">Donate</a>
-				<li><a href="#">Terms of Use</a>
-				<li><a href="#">About</a>
-				<li><a href="#">Contact Us</a>
-			</ul>
-		</div>
-	</footer>
+    <script src="./js/cordova-2.4.0.js"></script>
+	<script src="./dust/dust.min.js"></script>
+	<script src="./dust/base.js"></script>
+	<script src="./dust/templates.js"></script>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/jquery.cookie.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/bootstrap-datepicker.js"></script>
+	<!---<script src="./js/datepicker.js"></script>-->
+	<script src="./js/methods.js"></script>
+	<script src="./js/pieces.js"></script>
+	<script type="text/javascript">
+			
+		
+		alert(localStorage.logged_in);
+			
+		set_title();
+		if(localStorage.logged_in == 'yes')
+			set_header('auth_nav');
+		else
+			set_header('unauth_nav');
+		set_footer();
+		
+		
+		
+		
 
-
-
-     <!--Scripts-->
-     <script src="js/jquery.min.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/my.js"></script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
   </body>
+
+
 </html>
